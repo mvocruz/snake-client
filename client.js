@@ -6,13 +6,17 @@ const connect = function() {
     port: 50542,
     
   });
-
-  conn.on('connect', () => {
-    conn.write("Name: MVC");
-  });
   
   conn.on('connect', () => {
     console.log("Succesfully connected to game server");
+    conn.write("Name: MVC");
+    setInterval(() => {
+      conn.write("Move: up");
+    },250)
+    
+    // conn.write("Move: up");
+    // conn.write("Move: up");
+    // conn.write("Move: up");
   });
 
   conn.on('data', () => {
@@ -25,6 +29,5 @@ const connect = function() {
   return conn;
 };
 
-const connectObj = {connect};
+module.exports = {connect};
 
-module.exports = connectObj;
