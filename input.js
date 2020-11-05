@@ -13,15 +13,19 @@ const setupInput = function(conn) {
     stdin.on('data', (key) => {
     if (key === 'w') {
       conn.write('Move: up')
+      conn.write('Say: up')
     }   
     if (key === 'a') {
       conn.write('Move: left')
+      conn.write('Say: left')
     }
     if (key === 's') {
       conn.write('Move: down')
+      conn.write('Say: down')
     }
     if (key === 'd') {
       conn.write('Move: right')
+      conn.write('Say: right')
     }
     if (key === '\u0003') {
     process.exit();
